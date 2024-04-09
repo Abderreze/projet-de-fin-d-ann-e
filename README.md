@@ -8,3 +8,8 @@ Idée du jeu: Le principe du jeu est souls like en 2D, plusieur guerrier: samour
 
 Lore: 
 
+Textures nécessaires:
+- au moins 1 sol
+- au moins 1 background
+- les textures du perso (au moins 1 frame)
+- les textures des ennemis (au moins 1 frame)
