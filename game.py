@@ -6,13 +6,12 @@ screen = pygame.display.set_mode((1080, 720))
 pygame.display.set_caption("PLATFORMOUUUUUR")
 
 # importe le fond écran
-background = pygame.image.load("Tiles/Tiles/Assets/pxfuel.jpg")
 running = True 
 
 # condition tkt 
 while running:
     # on applique le fond d'écran
-    screen.blit(background, (0, 0))
+    screen.fill((94, 242, 255))
 
     # met à jour l'écran
     pygame.display.flip()
@@ -22,4 +21,3 @@ while running:
             running = False
             pygame.quit()
             print("f")
-
