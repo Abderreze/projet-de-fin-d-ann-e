@@ -8,7 +8,7 @@ pygame.init()
 screen_x = 1024
 screen_y = 512
 screen = pygame.display.set_mode((screen_x, screen_y))
-pygame.display.set_caption("PLATFORMOUUUUUR")
+pygame.display.set_caption("BASIROUUUUUUU")
 print("window loaded")
 
 # importation des textures
