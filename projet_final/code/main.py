@@ -9,16 +9,15 @@ screen_x = 1024
 screen_y = 512
 screen = pygame.display.set_mode((screen_x, screen_y))
 pygame.display.set_caption("PLATFORMOUUUUUR")
+print("window loaded")
 
 # importation des textures
-frame_width = 64
-def frame(pic, x):
-    global frame_width
+def frame(pic, x, frame_width=64):
     frame = pic.subsurface(pygame.Rect( frame_width * (x - 1), 0, frame_width, frame_width ))
     return frame
 
 bouga = {}
-bouga["bitmap"]  = pygame.image.load('./projet_final/textures/themes/perso_bouga_run.png')
+bouga["bitmap"]  = pygame.image.load('../textures/themes/perso_bouga_run.png')
 bouga["bitmap"] = pygame.transform.scale(bouga["bitmap"], (bouga["bitmap"].get_width() * 2, bouga["bitmap"].get_height() * 2))
 bouga["df_r"]    = frame(bouga["bitmap"], 1)
 bouga["walk1_r"] = frame(bouga["bitmap"], 2)
@@ -29,8 +28,11 @@ bouga["walk1_l"] = frame(bouga["bitmap"], 7)
 bouga["walk2_l"] = frame(bouga["bitmap"], 6)
 bouga["hit_l"]   = frame(bouga["bitmap"], 5)
 
-pygame.display.set_icon(bouga["df_r"])
+logo  = pygame.image.load('../textures/themes/Logo.png')
+pygame.display.set_icon(logo)
+print("textures loaded")
 
+print("starting game loop...")
 # boucle principale
 running = True 
 bouga["current"] = bouga["df_r"]
@@ -74,6 +76,7 @@ while running:
         bouga["current"] = bouga[running[facing][int(running["adv"])]]
     else:
         bouga["current"] = bouga["df_" + facing]
+        running["adv"] = 0
     
     # affichage
     screen.blit(bouga["current"], (0, 0))
