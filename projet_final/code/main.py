@@ -41,8 +41,9 @@ running = {"r": ["walk1_r", "df_r", "walk2_r", "df_r"], "l": ["walk1_l", "df_l",
 moving = "n"
 facing = "r"
 action = "hit"
+background = (94, 242, 255)
 while running:
-    screen.fill((94, 242, 255)) # remplissage de l'arrière plan
+    screen.fill(background) # remplissage de l'arrière plan
     for event in pygame.event.get(): # fermeture de fenêtre
         if event.type == pygame.QUIT:
             running = False
