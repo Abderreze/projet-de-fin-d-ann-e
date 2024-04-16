@@ -15,6 +15,8 @@ print("window loaded")
 def frame(pic, x, frame_width=64):
     frame = pic.subsurface(pygame.Rect( frame_width * (x - 1), 0, frame_width, frame_width ))
     return frame
+    
+# découpage de l'mage bouga en plusieurs bouga 
 
 bouga = {}
 bouga["bitmap"]  = pygame.image.load('../textures/themes/perso_bouga_run.png')
