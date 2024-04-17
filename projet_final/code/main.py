@@ -1,5 +1,4 @@
 import pygame
-import time
 from pygame.locals import *
 
 pygame.init()
@@ -11,31 +10,17 @@ screen = pygame.display.set_mode((screen_x, screen_y))
 pygame.display.set_caption("PLATFORMOUUUUUR")
 print("window loaded")
 
-# importation des textures
-def frame(pic, x, frame_width=64):
-    frame = pic.subsurface(pygame.Rect( frame_width * (x - 1), 0, frame_width, frame_width ))
-    return frame
-
-bouga = {}
-bouga["bitmap"]  = pygame.image.load('../textures/themes/perso_bouga_run.png')
-bouga["bitmap"] = pygame.transform.scale(bouga["bitmap"], (bouga["bitmap"].get_width() * 2, bouga["bitmap"].get_height() * 2))
-bouga["df_r"]    = frame(bouga["bitmap"], 1)
-bouga["walk1_r"] = frame(bouga["bitmap"], 2)
-bouga["walk2_r"] = frame(bouga["bitmap"], 3)
-bouga["hit_r"]   = frame(bouga["bitmap"], 4)
-bouga["df_l"]    = frame(bouga["bitmap"], 8)
-bouga["walk1_l"] = frame(bouga["bitmap"], 7)
-bouga["walk2_l"] = frame(bouga["bitmap"], 6)
-bouga["hit_l"]   = frame(bouga["bitmap"], 5)
-
-logo  = pygame.image.load('../textures/themes/Logo.png')
+# import des textures
+import textures
+logo = textures.logo
+player = textures.player
 pygame.display.set_icon(logo)
 print("textures loaded")
 
 print("starting game loop...")
 # boucle principale
 running = True 
-bouga["current"] = bouga["df_r"]
+player["current"] = player["df_r"]
 running = {"r": ["walk1_r", "df_r", "walk2_r", "df_r"], "l": ["walk1_l", "df_l", "walk2_l", "df_l"], "adv": 0}
 moving = "n"
 facing = "r"
@@ -67,18 +52,18 @@ while running:
     
     # choix du frame adapté
     if action == "hit":
-        bouga["current"] = bouga["hit_" + facing]
+        player["current"] = player["hit_" + facing]
     elif moving != "n":
-        if running["adv"] > 3.999:
+        if running["adv"] >= 3.9:
             running["adv"] = 0
         else:
-            running["adv"] += 0.005
-        bouga["current"] = bouga[running[facing][int(running["adv"])]]
+            running["adv"] += 0.010
+        player["current"] = player[running[facing][int(running["adv"])]]
     else:
-        bouga["current"] = bouga["df_" + facing]
+        player["current"] = player["df_" + facing]
         running["adv"] = 0
     
     # affichage
-    screen.blit(bouga["current"], (0, 0))
+    screen.blit(player["current"], (0, 0))
     pygame.display.flip() # mise à jour de l'écran
 pygame.display.flip() # mise à jour de l'écran
