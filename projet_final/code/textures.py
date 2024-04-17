@@ -6,7 +6,7 @@ def frame(pic, x, frame_width=64):
     frame = pic.subsurface(pygame.Rect( frame_width * (x - 1), 0, frame_width, frame_width ))
     return frame
 
-assert __name__ == "main.py", "This file is a module and cannot be executed alone!"
+
 logo = pygame.image.load('textures/misc/Logo.png')
 theme = "bouga"
 player = {}
