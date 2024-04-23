@@ -14,25 +14,45 @@ print("window loaded")
 import textures
 logo = textures.logo
 player = textures.player
+button_play = textures.button_play
+button_play_rect = textures.button_play_rect
+
 pygame.display.set_icon(logo)
 print("textures loaded")
 
 print("starting game loop...")
+
+player["current"] = player["df_r"]
+running = {"r": ["walk1_r", "df_r", "walk2_r", "df_r"], "l": ["walk1_l", "df_l", "walk2_l", "df_l"], "adv": 0}
+moving = "n"
+facing = "r"
+action = "hit"
+background = (94, 242, 255)
+
+
 # boucle principale
 open = True
 while open:
+    run = False
     #le menu princiaple
-    #importation des goulouglou 
-    button_play = pygame.image.load("")
-    running = True 
-    player["current"] = player["df_r"]
-    running = {"r": ["walk1_r", "df_r", "walk2_r", "df_r"], "l": ["walk1_l", "df_l", "walk2_l", "df_l"], "adv": 0}
-    moving = "n"
-    facing = "r"
-    action = "hit"
     background = (94, 242, 255)
-    menu = "off"
-    while running:
+    screen.fill(background)
+    screen.blit(button_play, button_play_rect)
+    
+    # si on veut quitter le jeux
+    for event in pygame.event.get(): 
+            if event.type == pygame.QUIT:
+                open = False
+                pygame.quit()
+                print("Closed window")
+            # lancement du jeu
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 1:
+                    if button_play_rect.collidepoint(event.pos):
+                        run = True
+    while run:
+       
+
         for event in pygame.event.get(): # fermeture de fenêtre
             if event.type == pygame.QUIT:
                 running = False
