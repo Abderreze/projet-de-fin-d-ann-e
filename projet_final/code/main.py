@@ -11,15 +11,18 @@ pygame.display.set_caption("BASIROUUUUUUU")
 print("window loaded")
 
 # import des textures
+
 import textures
 logo = textures.logo
-player = textures.player
+player_textures = textures.player
 pygame.display.set_icon(logo)
 print("textures loaded")
 
 print("starting game loop...")
 # boucle principale
+theme = "arabe"
 running = True 
+player = player_textures[theme]
 player["current"] = player["df_r"]
 running = {"r": ["walk1_r", "df_r", "walk2_r", "df_r"], "l": ["walk1_l", "df_l", "walk2_l", "df_l"], "adv": 0}
 moving = "n"

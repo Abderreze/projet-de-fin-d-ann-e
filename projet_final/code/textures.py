@@ -8,16 +8,18 @@ def frame(pic, x, frame_width=64):
 
 
 logo = pygame.image.load('textures/misc/Logo.png')
-theme = "bouga"
+characters = ["bouga", "chevalier", "arabe", "SUSHI"]
 player = {}
-player["bitmap"]  = pygame.image.load('textures/player/perso_'+theme+'_run.png')
-player["bitmap"]  = pygame.transform.scale(player["bitmap"], (player["bitmap"].get_width() * 2, player["bitmap"].get_height() * 2))
-# découpage de l'image bouga en plusieurs bouga 
-player["df_r"]    = frame(player["bitmap"], 1)
-player["walk1_r"] = frame(player["bitmap"], 2)
-player["walk2_r"] = frame(player["bitmap"], 3)
-player["hit_r"]   = frame(player["bitmap"], 4)
-player["df_l"]    = frame(player["bitmap"], 8)
-player["walk1_l"] = frame(player["bitmap"], 7)
-player["walk2_l"] = frame(player["bitmap"], 6)
-player["hit_l"]   = frame(player["bitmap"], 5)
+for character in characters:
+    player[character] = {}
+    player[character]["bitmap"]  = pygame.image.load('textures/player/perso_'+character+'_run.png')
+    player[character]["bitmap"]  = pygame.transform.scale(player[character]["bitmap"], (player[character]["bitmap"].get_width() * 2, player[character]["bitmap"].get_height() * 2))
+    # découpage de l'image bouga en plusieurs bouga 
+    player[character]["df_r"]    = frame(player[character]["bitmap"], 1)
+    player[character]["walk1_r"] = frame(player[character]["bitmap"], 2)
+    player[character]["walk2_r"] = frame(player[character]["bitmap"], 3)
+    player[character]["hit_r"]   = frame(player[character]["bitmap"], 4)
+    player[character]["df_l"]    = frame(player[character]["bitmap"], 8)
+    player[character]["walk1_l"] = frame(player[character]["bitmap"], 7)
+    player[character]["walk2_l"] = frame(player[character]["bitmap"], 6)
+    player[character]["hit_l"]   = frame(player[character]["bitmap"], 5)
