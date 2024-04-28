@@ -3,22 +3,26 @@ from pygame.locals import *
 
 pygame.init()
 
-# génération de la fenêtre 
+# génération de la fenêtre
+print("loading window...")
 screen_x = 1024
 screen_y = 512
 screen = pygame.display.set_mode((screen_x, screen_y))
 pygame.display.set_caption("BASIROUUUUUUU")
-print("window loaded")
 
 # import des textures
-
+print("loading textures...")
 import textures
 logo = textures.logo
 player_textures = textures.player
 pygame.display.set_icon(logo)
-print("textures loaded")
 
-print("starting game loop...")
+# import des maps
+print("loading maps...")
+import maps
+local_maps = maps.maps
+
+print("loaded game successfully, starting game loop!")
 # boucle principale
 theme = "arabe"
 running = True 

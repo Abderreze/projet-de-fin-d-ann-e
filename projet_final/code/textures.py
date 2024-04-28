@@ -1,8 +1,14 @@
+# CE FICHIER CHARGE TOUTES LES TEXTURES POUR LE JEU AU DEMARRAGE
+
 import pygame
 
-# importation des textures
-
 def frame(pic, x, frame_width=64):
+    '''
+    IN: pic: image contenant plusieurs frames dont on veut extraire un seul.
+        x: numéro du frame qu'on veut, les frames sont en ligne à intervales réguliers sur l'image pic
+        frame_width: largeur d'un frame, défaut sur 64
+    OUT: le frame extrait
+    '''
     frame = pic.subsurface(pygame.Rect( frame_width * (x - 1), 0, frame_width, frame_width ))
     return frame
 
