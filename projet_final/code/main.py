@@ -22,9 +22,9 @@ print("loading maps...")
 import maps
 local_maps = maps.maps
 
-print("loaded game successfully, starting game loop!")
-# boucle principale
+print("preparing for game loop...")
 theme = "arabe"
+map = local_maps["test_map"]
 running = True 
 player = player_textures[theme]
 player["current"] = player["df_r"]
@@ -33,6 +33,10 @@ moving = "n"
 facing = "r"
 action = "hit"
 background = (94, 242, 255)
+player["coordinates"] = (map["spawn"][0]+32, map["spawn"][1]-64)
+
+print("loaded game successfully, starting game loop!")
+# boucle principale
 while running:
     screen.fill(background) # remplissage de l'arrière plan
     for event in pygame.event.get(): # fermeture de fenêtre
@@ -72,6 +76,7 @@ while running:
         running["adv"] = 0
     
     # affichage
+    screen.blit(local_maps["test_map"]["raw"]["desert"], (0, 0))
     screen.blit(player["current"], (0, 0))
     pygame.display.flip() # mise à jour de l'écran
 pygame.display.flip() # mise à jour de l'écran
