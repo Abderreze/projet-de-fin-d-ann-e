@@ -45,6 +45,7 @@ def convert(map, theme):
                 if y == 0:
                     tile["type"] = "top"
                 all_tiles.append(tile)
+    all_tiles.reverse()
     map_picture = pygame.Surface((64*map["dimensions"][0], 64*map["dimensions"][1]), pygame.SRCALPHA)
     map_picture.fill((0, 0, 0, 0))
     for map_tile in all_tiles:
