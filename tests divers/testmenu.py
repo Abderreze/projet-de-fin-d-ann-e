@@ -14,21 +14,27 @@ print("window loaded")
 import textures
 logo = textures.logo
 player = textures.player
-button_play = textures.button_play
-button_play_rect = textures.button_play_rect
+button_play_on = textures.button_play_on
+button_play_on_rect = textures.button_play_on_rect
+button_play_off = textures.button_play_off
+width_button_play = textures.width_button_play
+height_button_play = textures.height_button_play 
+
 
 pygame.display.set_icon(logo)
 print("textures loaded")
 
 print("starting game loop...")
 
+#personnage
 player["current"] = player["df_r"]
 running = {"r": ["walk1_r", "df_r", "walk2_r", "df_r"], "l": ["walk1_l", "df_l", "walk2_l", "df_l"], "adv": 0}
 moving = "n"
 facing = "r"
 action = "hit"
+# élément, (bouton, son, ect...)
+button_play_position = (820, 400)
 background = (94, 242, 255)
-
 
 # boucle principale
 open = True
@@ -37,7 +43,9 @@ while open:
     #le menu princiaple
     background = (94, 242, 255)
     screen.fill(background)
-    screen.blit(button_play, button_play_rect)
+    screen.blit(button_play_on, (820, 400))
+    mouse_x, mouse_y = pygame.mouse.get_pos()
+    print(mouse_x, mouse_y)
     
     # si on veut quitter le jeux
     for event in pygame.event.get(): 
@@ -48,8 +56,21 @@ while open:
             # lancement du jeu
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
-                    if button_play_rect.collidepoint(event.pos):
+                    if button_play_on_rect.collidepoint(event.pos):
+                        pygame.time.delay(1500)
                         run = True
+            #test
+    if button_play_position[0] <= mouse_x <= button_play_position[0] + width_button_play and button_play_position[1] <= mouse_y <= button_play_position[1] + height_button_play:
+        # Si la souris est sur le bouton, afficher l'image "button_play_off"
+        screen.blit(button_play_off, button_play_position)
+    else:
+        # Sinon, afficher l'image "button_play_on"
+        screen.blit(button_play_on, button_play_position)
+
+    # Mettre à jour l'écran
+    pygame.display.flip()
+       
+
     while run:
        
 
