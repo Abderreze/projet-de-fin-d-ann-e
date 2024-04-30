@@ -77,9 +77,12 @@ while open:
 
     # affichage des boutons
     screen.blit(button_play_on, (820, 400))
-
-    screen.blit(button_sound_yes_off, button_sound_yes_position)
-    screen.blit(button_sound_no_on, button_sound_no_position)
+    if button_yes_state == "on":
+        screen.blit(button_sound_yes_on, button_sound_yes_position)
+        screen.blit(button_sound_no_off, button_sound_no_position)
+    else:
+        screen.blit(button_sound_yes_off, button_sound_yes_position)
+        screen.blit(button_sound_no_on, button_sound_no_position)
 
     draw_text("BASIROUUU", text_font, (0, 0, 0), 465, 100)
     draw_text("SOUND: ", text_font, (0, 0, 0), 80, 446)
