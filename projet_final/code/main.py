@@ -23,7 +23,7 @@ import maps
 local_maps = maps.maps
 
 print("preparing for game loop...")
-theme = "arabe"
+theme = "chevalier"
 map = local_maps["test_map"]
 running = True 
 player = player_textures[theme]
@@ -76,7 +76,7 @@ while running:
         running["adv"] = 0
     
     # affichage
-    screen.blit(local_maps["test_map"]["raw"]["desert"], (0, 0))
+    screen.blit(local_maps["test_map"]["raw"]["nature"], (0, 0))
     screen.blit(player["current"], (0, 0))
     pygame.display.flip() # mise à jour de l'écran
 pygame.display.flip() # mise à jour de l'écran
