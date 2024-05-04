@@ -1,5 +1,6 @@
-# CE FICHIER CHARGE TOUTES LES TEXTURES POUR LE JEU AU DEMARRAGE
-
+'''
+Module qui gère l'import de toutes les textures .png du jeu, et effectue toutes les opérations de modification au démarrage pour l'utilisation efficace dans le jeu
+'''
 import pygame
 
 # Fonction pour facilement récupérer des carrés d'une image

@@ -1,6 +1,8 @@
 import pygame
 from pygame.locals import *
-
+'''
+Fichier principal du jeu
+'''
 pygame.init()
 
 # génération de la fenêtre
@@ -20,25 +22,27 @@ pygame.display.set_icon(logo)
 # import des maps
 print("loading maps...")
 import maps
-local_maps = maps.maps
+
+# import du code de partie
+print("loading game algorithms...")
+import game
+
+# fonction d'affichage
+print("loading draw function...")
+def drawAll(game):
+    global screen
+    background = (94, 242, 255)
+    screen.fill(background)
+    screen.blit(game.map.picture, (0, 0))
+    screen.blit(game.player.current_frame, (0, 0))
+    pygame.display.flip() # mise à jour de l'écran
 
 print("preparing for game loop...")
-theme = "chevalier"
-map = local_maps["test_map"]
-running = True 
-player = player_textures[theme]
-player["current"] = player["df_r"]
-running = {"r": ["walk1_r", "df_r", "walk2_r", "df_r"], "l": ["walk1_l", "df_l", "walk2_l", "df_l"], "adv": 0}
-moving = "n"
-facing = "r"
-action = "hit"
-background = (94, 242, 255)
-player["coordinates"] = (map["spawn"][0]+32, map["spawn"][1]-64)
-
+current_game = game.Game(textures, "chevalier", "nature", maps.maps["test_map"]) 
+running = True
 print("loaded game successfully, starting game loop!")
 # boucle principale
 while running:
-    screen.fill(background) # remplissage de l'arrière plan
     for event in pygame.event.get(): # fermeture de fenêtre
         if event.type == pygame.QUIT:
             running = False
@@ -48,35 +52,8 @@ while running:
     # récupération des entrées clavier
     keys = pygame.key.get_pressed()
     mouse = pygame.mouse.get_pressed()
+    current_game.update_inputs(keys, mouse)
+    current_game.update_frame()
+    drawAll(current_game)
     
-    if mouse[0]:
-        action = "hit"
-    else:
-        action = "n"
-    if keys[K_LEFT]:
-        facing = "l"
-        moving = "l"
-    elif keys[K_RIGHT]:
-        facing = "r"
-        moving = "r"
-    else:
-        moving = "n"
-    
-    # choix du frame adapté
-    if action == "hit":
-        player["current"] = player["hit_" + facing]
-    elif moving != "n":
-        if running["adv"] >= 3.9:
-            running["adv"] = 0
-        else:
-            running["adv"] += 0.010
-        player["current"] = player[running[facing][int(running["adv"])]]
-    else:
-        player["current"] = player["df_" + facing]
-        running["adv"] = 0
-    
-    # affichage
-    screen.blit(local_maps["test_map"]["raw"]["nature"], (0, 0))
-    screen.blit(player["current"], (0, 0))
-    pygame.display.flip() # mise à jour de l'écran
 pygame.display.flip() # mise à jour de l'écran

@@ -1,4 +1,6 @@
-# CE FICHIER CONTIENT ET CHARGE LES MAPS DU JEU AU DEMARRAGE
+'''
+Module qui contient toutes les maps prédéfinies du jeu en un format facilement compréhensible, et les convertit en un format plus adapté au programme pour de bonnes performances
+'''
 import pygame
 
 # Import des textures de blocs
@@ -25,6 +27,7 @@ maps = { # Dico de toutes les maps du jeu. Les maps sont construites avec un car
 # Fonction qui construit l'image de la map avec les tiles
 def convert(map, theme):
     '''
+    USE: convertit les maps simplifiées de maps en surfaces pygame pour affichage
     IN: map complète provenant de maps
     OUT: image de la map complète en fonction du thème
     '''
