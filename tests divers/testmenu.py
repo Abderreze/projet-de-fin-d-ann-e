@@ -33,6 +33,10 @@ button_sound_no_on = textures.button_sound_no_on
 button_sound_no_off =textures.button_sound_no_off
 button_sound_no_rect = textures.button_sound_no_rect
 
+#séléction du personnage 
+arab_select = textures.arab_select
+sushi_select = textures.sushi_select
+
 #état du bouton yes 
 button_yes_state = "off"
 #état du bouton no
@@ -53,14 +57,15 @@ action = "hit"
 
 # élément, (bouton, son, ect...)
 button_play_position = (820, 400)
-button_sound_yes_position = (230, 420)
-button_sound_no_position = (343, 420)
+button_sound_yes_position = (275, 420)
+button_sound_no_position = (420, 420)
 background = (94, 242, 255)
-sound = pygame.mixer.music.load("projet_final/textures/misc/sound.mp3")
+sound = pygame.mixer.Sound("projet_final/textures/misc/sound.mp3")
+sound_button = pygame.mixer.Sound("projet_final/textures/misc/sound_button.mp3")
 
 
 # fonction texte 
-text_font = pygame.font.SysFont("Bolt", 30)
+text_font = pygame.font.Font("projet_final/textures/misc/dogica.ttf", 30)
 def draw_text(text, font, text_col, x, y):
     img = font.render(text, True, text_col)
     screen.blit(img, (x, y))
@@ -70,10 +75,27 @@ open = True
 while open:
     #menu
     run = False
-
+    mouse_x, mouse_y = pygame.mouse.get_pos()
+    print(mouse_x, mouse_y)
     #affichage du menu
     background = (94, 242, 255)
     screen.fill(background)
+
+
+    #choix des personnages :
+    lenght_rect = 200
+    width_rect = 170
+    rectangle_color = (227, 137, 16)
+    #choix perso arabe 
+    pygame.draw.rect(screen, rectangle_color, [108, 100, width_rect, lenght_rect])
+    screen.blit(arab_select, (145, 100))
+    
+    pygame.draw.rect(screen, rectangle_color, [308, 100, width_rect, lenght_rect])
+    screen.blit(sushi_select, (345, 100))
+    pygame.draw.rect(screen, rectangle_color, [508, 100, width_rect, lenght_rect])
+    pygame.draw.rect(screen, rectangle_color, [708, 100, width_rect, lenght_rect])
+
+
 
     # affichage des boutons
     screen.blit(button_play_on, (820, 400))
@@ -84,14 +106,13 @@ while open:
         screen.blit(button_sound_yes_off, button_sound_yes_position)
         screen.blit(button_sound_no_on, button_sound_no_position)
 
-    draw_text("BASIROUUU", text_font, (0, 0, 0), 465, 100)
-    draw_text("SOUND: ", text_font, (0, 0, 0), 80, 446)
+    # Texte     
+
+    draw_text("BASIROUUU", text_font, (0, 0, 0), 360, 37)
+    draw_text("SOUND: ", text_font, (0, 0, 0), 12, 446)
 
     draw_text("YES", text_font, (0, 0, 0), 180, 446)
-    draw_text("NO", text_font, (0, 0, 0), 300, 446)
-
-    mouse_x, mouse_y = pygame.mouse.get_pos()
-    #print(mouse_x, mouse_y)
+    draw_text("NO", text_font, (0, 0, 0), 350, 446)
     
     # si on veut quitter le jeux
     for event in pygame.event.get(): 
@@ -103,39 +124,42 @@ while open:
             elif event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1:
                     if button_play_on_rect.collidepoint(event.pos):
+                        sound_button.play()
                         pygame.time.delay(1500)
                         run = True
                     # bouton son
         
                     elif button_sound_yes_rect.collidepoint(event.pos):
+                            sound_button.play()
                             if button_yes_state == "off":
                                 button_yes_state = "on"
                                 button_no_state = "off"
                                 screen.blit(button_sound_yes_on, button_sound_yes_position)
                                 screen.blit(button_sound_no_off, button_sound_no_rect)
-                                pygame.mixer.music.play()
+                                sound.play(100000, 0, 8000)
                                 print("music run...")
                             elif button_yes_state == "on":
                                 button_yes_state = "off"
                                 button_no_state = "on"
                                 screen.blit(button_sound_yes_off, button_sound_yes_position)
                                 screen.blit(button_sound_no_on, button_sound_no_position)
-                                pygame.mixer.music.stop()
+                                sound.stop()
                                 print("music stop")
                     elif button_sound_no_rect.collidepoint(event.pos):
+                        sound_button.play()
                         if button_no_state == "off":
                             button_no_state = "on"
                             button_yes_state = "off"
                             screen.blit(button_sound_no_on, button_sound_no_position)
                             screen.blit(button_sound_yes_off, button_sound_yes_position)
-                            pygame.mixer.music.stop()
+                            sound.stop()
                             print("music stop")
                         elif button_no_state == "on":
                             button_no_state = "off"
                             button_yes_state = "on"
                             screen.blit(button_sound_no_off, button_sound_no_position)
                             screen.blit(button_sound_yes_on, button_sound_yes_position)
-                            pygame.mixer.music.play()
+                            sound.play(100000, 0, 8000)
                             print("music run...")
 
                     
