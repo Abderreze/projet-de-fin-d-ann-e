@@ -9,9 +9,3 @@ adversaire possible:
 chien, adversaire épée, panther
 Lore: 
 
-Textures nécessaires:
-- au moins 1 bloc de sol
-- au moins 1 demi bloc de sol (pente)
-- au moins 1 background
-- les textures du perso (au moins 1 frame)
-- les textures des ennemis (au moins 1 frame)
