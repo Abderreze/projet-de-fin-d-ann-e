@@ -1,4 +1,5 @@
 import pygame
+import settings
 from pygame.locals import *
 '''
 Fichier principal du jeu
@@ -7,9 +8,9 @@ pygame.init()
 
 # génération de la fenêtre
 print("loading window...")
-screen_x = 1024
-screen_y = 512
-screen = pygame.display.set_mode((screen_x, screen_y))
+screen_width = settings.screen_width
+screen_heigth = settings.screen_heigth
+screen = pygame.display.set_mode((screen_width, screen_heigth))
 pygame.display.set_caption("BASIROUUUUUUU")
 
 # import des textures
@@ -33,12 +34,12 @@ def drawAll(game):
     global screen
     background = (94, 242, 255)
     screen.fill(background)
-    screen.blit(game.map.picture, (0, 0))
-    screen.blit(game.player.current_frame, (0, 0))
+    screen.blit(game.map.picture, game.draw_pos["map"])
+    screen.blit(game.player.current_frame, game.draw_pos["player"])
     pygame.display.flip() # mise à jour de l'écran
 
 print("preparing for game loop...")
-current_game = game.Game(textures, "chevalier", "nature", maps.maps["test_map"]) 
+current_game = game.Game(textures, "chevalier", "stone", maps.maps["test_map"]) 
 running = True
 print("loaded game successfully, starting game loop!")
 # boucle principale
@@ -52,8 +53,7 @@ while running:
     # récupération des entrées clavier
     keys = pygame.key.get_pressed()
     mouse = pygame.mouse.get_pressed()
-    current_game.update_inputs(keys, mouse)
-    current_game.update_frame()
+    current_game.update(keys, mouse)
     drawAll(current_game)
     
 pygame.display.flip() # mise à jour de l'écran

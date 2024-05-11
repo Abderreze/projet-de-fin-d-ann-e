@@ -9,18 +9,22 @@ tiles_textures = textures.tiles
 
 maps = { # Dico de toutes les maps du jeu. Les maps sont construites avec un cardrillage de carrés
     "test_map": {
-        "dimensions": (16, 8), # Taille de la map et limites dont on ne peut pas sortir 
+        "dimensions": (48, 16), # Taille de la map et limites dont on ne peut pas sortir 
         "blocks": [ # Chaque bloc est un rectangle de plusieurs carrés de large
-            {"x": 0,  "y": 1, "w": 4, "h": 1}, # x, y, w, l: respectivement positions x et y du coin haut gauche d'un bloc, et hauteur et longueur des blocs (tout en unités de grille)
-            {"x": 4,  "y": 2, "w": 2, "h": 2},
-            {"x": 6,  "y": 3, "w": 4, "h": 3},
-            {"x": 10, "y": 1, "w": 2, "h": 1},
-            {"x": 12, "y": 2, "w": 4, "h": 2},
-            {"x": 2,  "y": 5, "w": 3, "h": 1},
-            {"x": 11, "y": 5, "w": 2, "h": 1},
+            {"x": 0,  "y": 1,  "w": 6,  "h": 1}, # x, y, w, l: respectivement positions x et y du coin haut gauche d'un bloc, et hauteur et longueur des blocs (tout en unités de grille)
+            {"x": 6,  "y": 2,  "w": 4,  "h": 2},
+            {"x": 10, "y": 3,  "w": 6,  "h": 3},
+            {"x": 16, "y": 4,  "w": 5,  "h": 4},
+            {"x": 21, "y": 1,  "w": 12, "h": 1},
+            {"x": 23, "y": 5,  "w": 7,  "h": 2},
+            {"x": 33, "y": 2,  "w": 2,  "h": 2},
+            {"x": 35, "y": 3,  "w": 3,  "h": 3},
+            {"x": 38, "y": 4,  "w": 4,  "h": 4},
+            {"x": 42, "y": 1,  "w": 3,  "h": 1},
+            {"x": 45, "y": 4,  "w": 3,  "h": 4},
         ],
         "entities": [], # Entités qui apparaissent
-        "spawn": (0, 3), # Coordonnées du coin haut gauche du carré où le joueur apparaît
+        "spawn": (5, 5), # Coordonnées du coin haut gauche du carré où le joueur apparaît
     }
 }
 
