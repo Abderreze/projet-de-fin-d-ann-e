@@ -53,7 +53,7 @@ def convert(map, theme):
                     tile["type"] = "top"
                 all_tiles.append(tile)
     all_tiles.reverse()
-    map_picture = pygame.Surface((64*map["dimensions"][0]+1, 64*map["dimensions"][1]+1), pygame.SRCALPHA)
+    map_picture = pygame.Surface((64*map["dimensions"][0]+4, 64*map["dimensions"][1]+4), pygame.SRCALPHA)
     map_picture.fill((0, 0, 0, 0))
     for map_tile in all_tiles:
         tile_texture = tiles_textures[themes_tiles[theme][map_tile["type"]]]

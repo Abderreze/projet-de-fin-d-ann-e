@@ -20,6 +20,8 @@ class Player:
         self.hitbox = (24, 92)
         self.vertical_speed = 0
         self.falling = False
+        self.health = 100
+        self.alive = True
 
 class Actions:
     # initialisation
@@ -30,6 +32,7 @@ class Actions:
         self.hold_hit = False
         self.actual_hit = False
         self.jump = False
+        self.suicide = False
 
 class Map:
     def __init__(self, map, theme):
@@ -57,6 +60,7 @@ class Game:
         self.hold_hit = False
         self.running = {"frames": ["walk1_", "df_", "walk2_", "df_"], "adv": 0}
         self.draw_pos = {"map": (0, 0), "player": (0, 0)}
+        self.won = False
     
     def update_inputs(self, keys, mouse):
         '''
@@ -90,6 +94,9 @@ class Game:
             self.actions.jump = True
         else:
             self.actions.jump = False
+            
+        if keys[K_o]:
+            self.actions.suicide = True
             
     def hit(self):
         falling = True
@@ -143,12 +150,17 @@ class Game:
             self.player.coordinates[0] = self.player.hitbox[0]
             self.actions.moving = False
         elif self.player.coordinates[0] > self.map.dimensions[0] - self.player.hitbox[0]:
-            self.player.coordinates[0] = self.map.dimensions[0] - self.player.hitbox[0]
-            self.actions.moving = False
+            self.won = True
         if self.player.coordinates[1] < 0:
             self.player.coordinates[1] = 0
         elif self.player.coordinates[1] > self.map.dimensions[1] - self.player.hitbox[1]:
             self.player.coordinates[1] = self.map.dimensions[1] - self.player.hitbox[1]
+            
+    def manage_health(self):
+        if self.actions.suicide:
+            self.player.health = 0
+        if self.player.health <= 0:
+            self.player.alive = False
     
     def update_frame(self):
         '''
@@ -190,5 +202,6 @@ class Game:
         self.update_inputs(keys, mouse)
         self.hit()
         self.move()
+        self.manage_health()
         self.update_frame()
         self.update_drawpos()
