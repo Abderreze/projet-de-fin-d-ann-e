@@ -8,13 +8,13 @@ Le joueur se déplace sur une map rappelant les terrains de mario. Le but est de
 Le jeu n'a par ailleurs qu'une map, mais il est organisé pour pouvoir en recevoir autant que souhaité même si un sélecteur de map devra pour cela être ajouté au menu.
 
 **Contrôles**
-Menu:
+Menu
   A, Z, E, R pour choisir le personnage joué
   S pour activer ou désactiver le son
   Return pour commencer la partie (nécessite d'avoir séléctionné un perso!)
-Jeu:
+Jeu
   Flèches gauche et droite pour se déplacer horizontalement
   Flèche haut pour sauter
   Clic gauche pour attaquer (pas d'ennemis à attaquer pour le moment, et attaquer vous empèche d'avancer
-Ecran de fin de partie:
+Ecran de fin de partie
   Return pour retourner au menu
