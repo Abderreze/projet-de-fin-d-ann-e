@@ -124,4 +124,3 @@ while running:
         if keys[K_RETURN]:
             go_menu = True
         drawMenu(current_end_screen)
-        

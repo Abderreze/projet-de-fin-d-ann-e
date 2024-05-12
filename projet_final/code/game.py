@@ -139,8 +139,8 @@ class Game:
         # gravité
         if self.player.falling:
             self.player.vertical_speed -= 0.01
-        if self.player.vertical_speed < -1.53:
-                self.player.vertical_speed = -1.53
+        if self.player.vertical_speed < -1.55:
+                self.player.vertical_speed = -1.55
         if self.actions.jump and not self.player.falling:
             self.player.vertical_speed = 1.6
         self.player.coordinates[1] += self.player.vertical_speed

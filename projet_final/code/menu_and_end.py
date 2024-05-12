@@ -45,7 +45,7 @@ class Menu:
         else:
             self.sound_pressed = False
         
-        if keys[K_p] or mouse[0] or keys[K_RETURN]:
+        if keys[K_RETURN]:
             if self.can_go:
                 self.ready = True
         
