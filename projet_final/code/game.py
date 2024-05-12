@@ -139,10 +139,10 @@ class Game:
         # gravité
         if self.player.falling:
             self.player.vertical_speed -= 0.01
-        if self.player.vertical_speed < -1.5:
-                self.player.vertical_speed = -1.5
+        if self.player.vertical_speed < -1.53:
+                self.player.vertical_speed = -1.53
         if self.actions.jump and not self.player.falling:
-            self.player.vertical_speed = 1.5
+            self.player.vertical_speed = 1.6
         self.player.coordinates[1] += self.player.vertical_speed
         
         # limites de la map

@@ -113,7 +113,7 @@ logo = pygame.image.load('textures/misc/Logo.png')
 alphabet_raw = pygame.image.load("textures/misc/alphabet.png")
 alphabet = {}
 i = 1
-for letter in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?,.:/' ":
+for letter in "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!?,.:/' []":
     alphabet[letter] = frame(alphabet_raw, i, 8)
     i += 1
 

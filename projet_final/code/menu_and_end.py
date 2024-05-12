@@ -12,6 +12,7 @@ class Menu:
         char_choices = ["arabe", "bouga", "chevalier", "SUSHI"]
         self.theme_choices = {"arabe": "desert", "bouga": "nature", "chevalier": "stone", "SUSHI": "japan"}
         self.sound = True
+        self.sound_pressed = False
         self.textures = textures
         self.draw_elements = []
         self.map = "test_map"
@@ -35,9 +36,14 @@ class Menu:
             self.map = "test_map"
         
         if keys[K_s]:
-            self.sound = True
-        elif keys[K_d]:
-            self.sound = False
+            if not self.sound_pressed:
+                if self.sound:
+                    self.sound = False
+                else:
+                    self.sound = True
+            self.sound_pressed = True
+        else:
+            self.sound_pressed = False
         
         if keys[K_p] or mouse[0] or keys[K_RETURN]:
             if self.can_go:
@@ -77,14 +83,14 @@ class Menu:
             button_play["pic"] = self.textures["play"]["on"]
         self.draw_elements.append(button_play)
         
-        button_sound = {"pic": self.textures["sound"]["off"], "pos": (350, 320)}
+        button_sound = {"pic": self.textures["sound"]["off"], "pos": (480, 320)}
         if self.sound:
             button_sound["pic"] = self.textures["sound"]["on"]
         self.draw_elements.append(button_sound)
         
-        sound_text = "Sound:"
-        sound_pic = textures.text(sound_text, self.alphabet, 6)
-        self.draw_elements.append({"pic": sound_pic, "pos": (50, 330)})
+        sound_text = "Sound [S]:"
+        sound_pic = textures.text(sound_text, self.alphabet, 5)
+        self.draw_elements.append({"pic": sound_pic, "pos": (50, 350)})
         
     # Fonction principale de fonctionnement
     def update(self, keys, mouse):

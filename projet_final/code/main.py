@@ -96,6 +96,7 @@ while running:
         drawGame(current_game)
     end_time = time.time()
     time_played = end_time - start_time
+    time_played = int(time_played * 1000) / 1000
     print("Time played: ", time_played)
     if current_game.won:
         print("Success!")
