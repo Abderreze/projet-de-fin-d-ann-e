@@ -16,6 +16,7 @@ Return pour commencer la partie (nécessite d'avoir séléctionné un perso!)
 Flèches gauche et droite pour se déplacer horizontalement,
 Flèche haut pour sauter,
 Clic gauche pour attaquer (pas d'ennemis à attaquer pour le moment, et attaquer vous empèche d'avancer
+O pour abandonner
 
 **Contrôles de l'écran de fin de partie**
 Return pour retourner au menu
