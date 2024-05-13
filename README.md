@@ -17,7 +17,7 @@
 # Contrôles du jeu
   - Flèches gauche et droite pour se déplacer horizontalement,
   - Flèche haut pour sauter,
-  - Clic gauche pour attaquer (pas d'ennemis à attaquer pour le moment, et attaquer vous empèche d'avancer
+  - Clic gauche pour attaquer (pas d'ennemis à attaquer pour le moment, et attaquer vous empèche d'avancer)
   - O pour abandonner
 
 # Contrôles de l'écran de fin de partie
