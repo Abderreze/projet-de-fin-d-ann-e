@@ -5,7 +5,7 @@
 
 # But du jeu
 
-  - Le principe du jeu est de choisir un personnage vous avez lz choix entre plusieur guerrier: un samourai, un guerrier arabe, un croisé, un homme de cromagnon.
+  - Le principe du jeu est de choisir un personnage vous avez lze choix entre plusieur guerrier: un samourai, un guerrier arabe, un croisé, un homme de cromagnon.
   - Le joueur se déplace sur une map rappelant les terrains de mario. Le but est de rejoindre le bord droit de la map le plus vite possible sans mourir ou tomber dans un trou. Même si le jeu n'a actuellement pas d'autres entités que le joueur, le code est conçu pour pouvoir ajouter plus tard des ennemis qui doivent être combattus pour terminer la map.
   - Le jeu a par ailleurs qu'une map, mais il est organisé pour pouvoir en recevoir autant que souhaité même si un sélecteur de map devra pour cela être ajouté au menu.
 
