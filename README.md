@@ -1,9 +1,9 @@
 # projet-de-fin-d-ann-e
 
-## Idée de départ
+# Idée de départ
   - L'idée de base est de faire un jeu en 2D pour le projet final en NSI.
 
-##But du jeu
+# But du jeu
 
   - Le principe du jeu est de choisir un personnage vous avez lz choix entre plusieur guerrier: un samourai, un guerrier arabe, un croisé, un homme de cromagnon.
   - Le joueur se déplace sur une map rappelant les terrains de mario. Le but est de rejoindre le bord droit de la map le plus vite possible sans mourir ou tomber dans un trou. Même si le jeu n'a actuellement pas d'autres entités que le joueur, le code est conçu pour pouvoir ajouter plus tard des ennemis qui doivent être combattus pour terminer la map.
@@ -14,16 +14,17 @@
   - S pour activer ou désactiver le son,
   - touche [Entrée] pour lancer la partie (nécessite d'avoir séléctionné un perso!)
 
-##Contrôles du jeu
+# Contrôles du jeu
   - Flèches gauche et droite pour se déplacer horizontalement,
   - Flèche haut pour sauter,
   - Clic gauche pour attaquer (pas d'ennemis à attaquer pour le moment, et attaquer vous empèche d'avancer
 O pour abandonner
 
-**Contrôles de l'écran de fin de partie**
+# Contrôles de l'écran de fin de partie
   -Return pour retourner au menu
-  
-- [Aydan](https://github.com/qwaykee)
-- [Abde](https://github.com/Hakjii)
+
+# 
+- [Aydan](https://github.com/)
+- [Abderrezek](https://github.com/)
 - [Ilyas](https://github.com/ilyasdevelop)
-- [Martin](https://github.com/RTxmrt)
+
