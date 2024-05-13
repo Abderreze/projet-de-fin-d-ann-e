@@ -1,8 +1,8 @@
 # projet-de-fin-d-ann-e
 
-__**Idée de départ**__ L'idée de base est de faire un jeu en 2D pour le projet final en NSI.
+**Idée de départ** L'idée de base est de faire un jeu en 2D pour le projet final en NSI.
 
-__**But du jeu**__
+**But du jeu**
 
   -Le principe du jeu est de choisir un personnage vous avez lz choix entre plusieur guerrier: un samourai, un guerrier arabe, un croisé, un homme de cromagnon.
   -Le joueur se déplace sur une map rappelant les terrains de mario. Le but est de rejoindre le bord droit de la map le plus vite possible sans mourir ou tomber dans un trou. Même si le jeu n'a actuellement pas d'autres entités que le joueur, le code est conçu pour pouvoir ajouter plus tard des ennemis qui doivent être combattus pour terminer la map.
