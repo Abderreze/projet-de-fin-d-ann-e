@@ -2,15 +2,15 @@
 
 **Idée de départ** L'idée de base est de faire un jeu en 2D pour le projet final en NSI.
 
-**Idée du jeu**
-Le principe du jeu est souls like en 2D, plusieur guerrier: samourai, guerrier arabe, croisé, homme de cromagnon.
+**But du jeu**
+Le principe du jeu est de choisir un personnage vous avez lz choix entre plusieur guerrier: un samourai, un guerrier arabe, un croisé, un homme de cromagnon.
 Le joueur se déplace sur une map rappelant les terrains de mario. Le but est de rejoindre le bord droit de la map le plus vite possible sans mourir ou tomber dans un trou. Même si le jeu n'a actuellement pas d'autres entités que le joueur, le code est conçu pour pouvoir ajouter plus tard des ennemis qui doivent être combattus pour terminer la map.
-Le jeu n'a par ailleurs qu'une map, mais il est organisé pour pouvoir en recevoir autant que souhaité même si un sélecteur de map devra pour cela être ajouté au menu.
+Le jeu a par ailleurs qu'une map, mais il est organisé pour pouvoir en recevoir autant que souhaité même si un sélecteur de map devra pour cela être ajouté au menu.
 
 **Contrôles du menu**
 A, Z, E, R pour choisir le personnage joué,
 S pour activer ou désactiver le son,
-Return pour commencer la partie (nécessite d'avoir séléctionné un perso!)
+touche [Entrée] pour lancer la partie (nécessite d'avoir séléctionné un perso!)
 
 **Contrôles du jeu**
 Flèches gauche et droite pour se déplacer horizontalement,
