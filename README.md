@@ -23,8 +23,8 @@ O pour abandonner
 # Contrôles de l'écran de fin de partie
   -Return pour retourner au menu
 
-# 
-- [Aydan](https://github.com/)
-- [Abderrezek](https://github.com/)
+# Participants 
+- [Aydan](https://github.com/AydanL)
+- [Abderrezek](https://github.com/Abderreze)
 - [Ilyas](https://github.com/ilyasdevelop)
 
