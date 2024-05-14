@@ -61,6 +61,7 @@ class Game:
         self.running = {"frames": ["walk1_", "df_", "walk2_", "df_"], "adv": 0}
         self.draw_pos = {"map": (0, 0), "player": (0, 0)}
         self.won = False
+        self.background = textures.background[map_theme]
     
     def update_inputs(self, keys, mouse):
         '''
