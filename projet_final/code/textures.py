@@ -57,6 +57,17 @@ tiles["stone_path"]  = resize(tiles["stone_path"], 4)
 tiles["sand"]        = resize(tiles["sand"], 4)
 tiles["sand_path"]   = resize(tiles["sand_path"], 4)
 
+background = {}
+background["nature"] = pygame.image.load('textures/tiles/background_prairie.png')
+background["stone"] = pygame.image.load('textures/tiles/background_castle.png')
+background["japan"] = pygame.image.load('textures/tiles/background_sakura.png')
+background["desert"] = pygame.image.load('textures/tiles/background_desert.png')
+background["nature"] =  resize(background["nature"], 3)
+background["stone"] =  resize(background["stone"], 3)
+background["japan"] =  resize(background["japan"], 3)
+background["desert"] =  resize(background["desert"], 3)
+
+
 # Import des textures du menu
 
 # bouton play

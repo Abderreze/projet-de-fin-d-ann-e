@@ -45,8 +45,8 @@ def drawMenu(menu):
     pygame.display.flip()
 def drawGame(game):
     global screen
-    background = (94, 242, 255)
-    screen.fill(background)
+    background = game.background
+    screen.blit(background, (0, 0))
     screen.blit(game.map.picture, game.draw_pos["map"])
     screen.blit(game.player.current_frame, game.draw_pos["player"])
     pygame.display.flip() # mise à jour de l'écran
